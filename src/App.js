@@ -1,7 +1,9 @@
 import "./App.css";
 // import { useState } from "react";
-import { Queens } from "./queens";
+import { useState } from "react";
 import { Astras } from "./astras";
+import foto from "./images/foto.jpg";
+import { Queens } from "./queens";
 
 const astrases = [
   { name: "Ajak", code: "The Prime", hierarchy: "Submission" },
@@ -24,14 +26,28 @@ const queens = [
 ];
 
 function App() {
+  const [dominated, setDominated] = useState(false);
+  const [color, setColor] = useState(false);
+  // const [color, setColor] = useState("black");
   return (
     <div className="App">
+      <button
+        onClick={() => {
+          setDominated(!dominated);
+        }}
+      >
+        show boobs
+      </button>
+      <button onClick={() => setColor(!color)}>Make them cum</button>
+      {dominated && <img src={foto} alt="foto" />}
+      {/* <button onClick={() => setColor("red")}>Make them cum</button> */}
       {astrases.map((astras) => {
         return (
           <Astras
             name={astras.name}
             code={astras.code}
             hierarchy={astras.hierarchy}
+            color={color}
           />
         );
       })}
