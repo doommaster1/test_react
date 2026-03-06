@@ -2,8 +2,9 @@ import "./App.css";
 // import { useState } from "react";
 import { useState } from "react";
 import { Astras } from "./astras";
-import foto from "./images/foto.jpg";
+import boobs from "./images/boobs.jpg";
 import { Queens } from "./queens";
+import nackal from "./images/nackal.jpg";
 
 const astrases = [
   { name: "Ajak", code: "The Prime", hierarchy: "Submission" },
@@ -28,9 +29,46 @@ const queens = [
 function App() {
   const [dominated, setDominated] = useState(false);
   const [color, setColor] = useState(false);
+  const [fucked, setFucked] = useState(1);
+
+  const increaseFucked = () => {
+    setFucked(fucked + 1);
+  };
+
+  const fisting = () => {
+    setFucked(10 + 1);
+  };
+  const decreaseFucked = () => {
+    fucked > 1 && setFucked(fucked - 1);
+  };
+  const cum = () => {
+    setFucked(1);
+  };
   // const [color, setColor] = useState("black");
   return (
     <div className="App">
+      {fucked}
+      <br />
+      <button onClick={increaseFucked}>Fucked More</button>
+      <button onClick={decreaseFucked}>Give her Rest</button>
+      <button onClick={cum}>she is cum, go back to start</button>
+      <button onClick={fisting}>Fisting</button>
+      {fucked > 10 && (
+        <div>
+          <h1>she squirting</h1>
+          <img
+            src={nackal}
+            alt="fucked"
+            style={{ width: "50%", height: "auto" }}
+          ></img>
+          <br />
+          <br />
+          <br />
+        </div>
+      )}
+      <br />
+      <br />
+      <br />
       <button
         onClick={() => {
           setDominated(!dominated);
@@ -39,7 +77,17 @@ function App() {
         show boobs
       </button>
       <button onClick={() => setColor(!color)}>Make them cum</button>
-      {dominated && <img src={foto} alt="foto" />}
+      {dominated && (
+        <div>
+          <br />
+          <img src={boobs} alt="boobs" style={{ width: "50%", height: "Auto" }} />
+          <br />
+          <br />
+        </div>
+      )}
+      <br />
+      <br />
+      <br />
       {/* <button onClick={() => setColor("red")}>Make them cum</button> */}
       {astrases.map((astras) => {
         return (
@@ -51,14 +99,10 @@ function App() {
           />
         );
       })}
-      <h1>Their Children</h1>
+      <h1 style={{ color: "red" }}>Their Children</h1>
       {queens.map((queen) => {
         return (
-          <Queens
-            name={queen.name}
-            code={queen.code}
-            hierarchy={queen.kingdom}
-          />
+          <Queens name={queen.name} code={queen.code} kingdom={queen.kingdom} />
         );
       })}
     </div>
